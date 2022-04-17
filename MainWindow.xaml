@@ -1,0 +1,28 @@
+﻿<Window x:Class="RSA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="Gray">
+    <Grid>
+        <TextBox x:Name="ForEncrypt_TextBox" HorizontalAlignment="Left" Height="105" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Margin="69,58,0,0"/>
+        <Button x:Name="ToEncrypt_Button" Content="Зашифровать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="140,192,0,0" Height="41" Click="ToEncrypt_Button_Click"/>
+        
+        <TextBox x:Name="EncryptingResult_TextBox" HorizontalAlignment="Left" Height="159" TextWrapping="Wrap" VerticalAlignment="Top" Width="257" Margin="364,74,0,0" RenderTransformOrigin="0.5,0.5"/>
+        
+        <Button x:Name="ToDecrypt_Button" Content="Расшифровать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="408,255,0,0" Click="ToDecrypt_Button_Click"/>
+        <TextBox x:Name="DecryptingResult_TextBox" HorizontalAlignment="Left" Height="106" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Margin="331,304,0,0"/>
+        <TextBox x:Name="N_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,260,0,0"/>
+        <TextBox x:Name="f_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,387,0,0"/>
+        <TextBox x:Name="d_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,348,0,0"/>
+        <TextBox x:Name="e_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,304,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="f" VerticalAlignment="Top" Margin="5,387,0,0" Height="21" Width="22"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="d" VerticalAlignment="Top" Margin="5,348,0,0" Height="21" Width="22"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="e" VerticalAlignment="Top" Margin="5,304,0,0" Height="21" Width="22"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="n" VerticalAlignment="Top" Margin="5,262,0,0" Height="21" Width="22"/>
+        <Button x:Name="GenerateKeys_Button" Content="Генерация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="27,20,0,0" Click="GenerateKeys_Button_Click"/>
+
+    </Grid>
+</Window>
