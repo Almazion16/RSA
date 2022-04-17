@@ -11,13 +11,13 @@ namespace RSA
 {
     public class Rsa
     {
-        private int length=100;
+        private int length=512;
         public BigInteger n;
         public BigInteger e;
         public BigInteger f;
         public BigInteger d;
-        private string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghiklmnopqrstvxyzABCDEFGHIKLMNOPQRSTVXYZ0123456789 ";
-        private string en = "ABCDEFGHIKLMNOPQRSTVXYZabcdefghiklmnopqrstvxyz0123456789 ";
+        private string alphabet = "~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ ,.-!?()\n";
+        
 
         public Rsa() { }
 
@@ -51,7 +51,7 @@ namespace RSA
 
         private byte[] TextConverter(string text)
         {
-            Regex.Replace(text, @"[^A-Za-z\s0-9А-Яа-яЁё]+", "");
+            /*Regex.Replace(text, @"[^A-Za-z\s0-9А-Яа-яЁё]+", "");*/
 
             
             byte[] byteArray = text.Select(i => (byte)alphabet.IndexOf(i)).ToArray();
@@ -60,8 +60,9 @@ namespace RSA
 
         }
 
-        public void GenerateKeys()
+        public void GenerateKeys(int length)
         {
+            this.length = length;
             (BigInteger p,BigInteger q) = GeneratePQ();
             n = p * q;
             f = (p - 1) * (q - 1);
@@ -101,7 +102,7 @@ namespace RSA
 
         private BigInteger GenerateD()
         {
-            BigInteger dumpGCD=ExtendedGCD(f, e, out BigInteger dumpX, out BigInteger d);
+            d=ExtendedGCD(e,f);
 
 
             if (d < 0)
@@ -129,11 +130,32 @@ namespace RSA
             BigInteger gcd = ExtendedGCD(b % a, a, out x, out y);
 
             BigInteger newY = x;
-            BigInteger newX = y - (b / a)*x;
+            BigInteger newX = y - (b / a) * x;
 
             x = newX;
             y = newY;
             return gcd;
+        }
+
+        BigInteger ExtendedGCD(BigInteger a, BigInteger b)
+        {
+            List<BigInteger> wholeParts = new List<BigInteger>();
+            while (a % b != 0)
+            {
+                wholeParts.Add(a / b);
+                BigInteger temp = b;
+                b = a % b;
+                a = temp;
+            }
+
+            BigInteger x = 0, y = 1;
+            for (int i = 0; i < wholeParts.Count; i++)
+            {
+                BigInteger temp = x;
+                x = y;
+                y = temp - y * wholeParts[wholeParts.Count - i - 1];
+            }
+            return x;
         }
 
         /*private string ToBitString(this BitArray bits)

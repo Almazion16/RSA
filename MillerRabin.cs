@@ -108,12 +108,12 @@ namespace RSA
             BigInteger max = maximum(length);
 
             BigInteger num;
-            Random random = new Random();
+            RandomNumberGenerator random = RandomNumberGenerator.Create();
             BitArray bitarr = new BitArray(length);
             byte[] bytearr = ToBytes(bitarr).ToArray();
             do
             {
-                random.NextBytes(bytearr);
+                random.GetBytes(bytearr);
                 num = new BigInteger(bytearr.Concat(new byte[] { 0 }).ToArray());
 
             } while (num > max || num < min);

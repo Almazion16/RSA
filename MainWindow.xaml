@@ -5,24 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Gray">
+        Title="MainWindow" Height="500.4" Width="954.8" Background="Gray">
     <Grid>
-        <TextBox x:Name="ForEncrypt_TextBox" HorizontalAlignment="Left" Height="105" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Margin="69,58,0,0"/>
-        <Button x:Name="ToEncrypt_Button" Content="Зашифровать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="140,192,0,0" Height="41" Click="ToEncrypt_Button_Click"/>
-        
-        <TextBox x:Name="EncryptingResult_TextBox" HorizontalAlignment="Left" Height="159" TextWrapping="Wrap" VerticalAlignment="Top" Width="257" Margin="364,74,0,0" RenderTransformOrigin="0.5,0.5"/>
-        
-        <Button x:Name="ToDecrypt_Button" Content="Расшифровать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="408,255,0,0" Click="ToDecrypt_Button_Click"/>
-        <TextBox x:Name="DecryptingResult_TextBox" HorizontalAlignment="Left" Height="106" TextWrapping="Wrap" VerticalAlignment="Top" Width="366" Margin="331,304,0,0"/>
-        <TextBox x:Name="N_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,260,0,0"/>
-        <TextBox x:Name="f_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,387,0,0"/>
-        <TextBox x:Name="d_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,348,0,0"/>
-        <TextBox x:Name="e_TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="27,304,0,0"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="f" VerticalAlignment="Top" Margin="5,387,0,0" Height="21" Width="22"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="d" VerticalAlignment="Top" Margin="5,348,0,0" Height="21" Width="22"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="e" VerticalAlignment="Top" Margin="5,304,0,0" Height="21" Width="22"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="n" VerticalAlignment="Top" Margin="5,262,0,0" Height="21" Width="22"/>
-        <Button x:Name="GenerateKeys_Button" Content="Генерация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="27,20,0,0" Click="GenerateKeys_Button_Click"/>
+        <TextBox x:Name="ForEncrypt_TextBox" DataObject.Pasting="ForEncrypt_TextBox_Pasting" HorizontalAlignment="Left" Height="129" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Margin="58,48,0,0" PreviewTextInput="ForEncrypt_TextBox_PreviewTextInput"/>
+        <Button x:Name="ToEncrypt_Button" Content="Зашифровать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="130,182,0,0" Height="41" Click="ToEncrypt_Button_Click"/>
+
+        <TextBox x:Name="EncryptingResult_TextBox" IsReadOnly="True" HorizontalAlignment="Left" Height="129" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Margin="314,48,0,0" RenderTransformOrigin="0.5,0.5"/>
+
+        <Button x:Name="ToDecrypt_Button" Content="Расшифровать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="380,182,0,0" Click="ToDecrypt_Button_Click" Height="41"/>
+        <TextBox x:Name="DecryptingResult_TextBox" IsReadOnly="True" HorizontalAlignment="Left" Height="129" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Margin="569,48,0,0"/>
+        <TextBox x:Name="N_TextBox" IsReadOnly="true" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="57,244,0,0"/>
+        <TextBox x:Name="f_TextBox" IsReadOnly="true" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="57,371,0,0"/>
+        <TextBox x:Name="d_TextBox" IsReadOnly="true" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="57,332,0,0"/>
+        <TextBox x:Name="e_TextBox" IsReadOnly="true" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="57,288,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="f:" VerticalAlignment="Top" Margin="34,371,0,0" Height="21" Width="22"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="d:" VerticalAlignment="Top" Margin="34,332,0,0" Height="21" Width="22"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="e:" VerticalAlignment="Top" Margin="34,288,0,0" Height="21" Width="22"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="N:" VerticalAlignment="Top" Margin="34,246,0,0" Height="21" Width="22"/>
+        <Button x:Name="GenerateKeys_Button" Content="Генерация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="219,10,0,0" Click="GenerateKeys_Button_Click" Height="23"/>
+        <TextBox x:Name="BitSize_Textbox" DataObject.Pasting="BitSize_Textbox_Pasting" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,10,0,0" PreviewTextInput="BitSize_Textbox_PreviewTextInput" PreviewKeyDown="BitSize_Textbox_PreviewKeyDown"/>
+        <TextBox x:Name="Test" HorizontalAlignment="Left" Height="108" TextWrapping="Wrap" VerticalAlignment="Top" Width="358" Margin="346,286,0,0"/>
+        <Button x:Name="test" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="513,262,0,0" Click="test_Click"/>
 
     </Grid>
 </Window>
